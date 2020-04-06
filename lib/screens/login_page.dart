@@ -2,27 +2,27 @@
 // 1) IMPORT
 //=================================================================================
 import 'package:callapi01/components/show_notification.dart';
-import 'package:callapi01/services/add_item_service.dart';
 import 'package:callapi01/services/logger_service.dart';
+import 'package:callapi01/services/login_user.dart';
 import 'package:flutter/material.dart';
 
 //=================================================================================
 // 2) CLASS ADD ITEM
 //=================================================================================
-class AddItemPage extends StatefulWidget {
-  AddItemPage({Key key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  LoginPage({Key key}) : super(key: key);
 
   @override
-  _AddItemPageState createState() => _AddItemPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 
 //=================================================================================
 // 3) BUILD UI
 //=================================================================================
-class _AddItemPageState extends State<AddItemPage> {
-  final pdname = TextEditingController();
-  final pddes = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
+  final _username = TextEditingController();
+  final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class _AddItemPageState extends State<AddItemPage> {
       // 4) APP BAR "ADD ITEM"
       //===========================================================================   
       appBar: AppBar(
-        title: Text("Add Product"),
+        title: Text("Login to system"),
         backgroundColor: Colors.grey,
       ),
       //===========================================================================
@@ -45,37 +45,37 @@ class _AddItemPageState extends State<AddItemPage> {
               child: Column(
                 children: <Widget>[
                   //===============================================================
-                  // 1) TEXT "PRODUCT NAME"
+                  // 1) TEXT "USER NAME"
                   //===============================================================
                   TextField(
-                    decoration: InputDecoration(labelText: "Product Name"),
-                    controller: pdname,   //TEXT FIELD NAME: PRODUCTION NAME ****
+                    decoration: InputDecoration(labelText: "User Name"),
+                    controller: _username,   //TEXT FIELD NAME: PRODUCTION NAME ****
                   ),
                   Padding(padding: const EdgeInsets.all(10)),
                   //===============================================================
-                  // 2) TEXT "PRODUCT DESCRIPTION"
+                  // 2) TEXT "PASSWORD"
                   //===============================================================                  
                   TextField(
                     decoration:
-                        InputDecoration(labelText: "Product Description"),
-                    controller: pddes,    //TEXT FIELD NAME: PDDES (PRODUCT DESCRIPTION) ****
+                        InputDecoration(labelText: "Password"),
+                    controller: _password,    //TEXT FIELD NAME: PDDES (PRODUCT DESCRIPTION) ****
                   ),
                   Padding(padding: const EdgeInsets.all(10)),
 
                   //===============================================================
-                  // 3) BUTTON "ADD ITEMS"
+                  // 3) BUTTON "LOGIN"
                   //===============================================================                  
                   RaisedButton(
-                    child: Text("Save Add items"),
+                    child: Text("Login"),
                     onPressed: () {
                       //===========================================================
                       // VALIDATE TEXT
                       //===========================================================
-                      if (pdname.text == "" || pddes.text == "") {
+                      if (_username.text == "" || _password.text == "") {
                         showMessageBox(context, "Error",
-                            "Please enter name and description before adding it to firebase",
+                            "Please enter user name and password to login",
                             actions: [dismissButton(context)]);
-                        logger.e("pdname or pddes can't be null");
+                        logger.e("username or password can't be null");
                       //===========================================================
                       // VALIDATE "OK"
                       //===========================================================                         
@@ -83,12 +83,12 @@ class _AddItemPageState extends State<AddItemPage> {
                         //=========================================================
                         // ****** PREPARE "INSERT DATA" ******
                         //========================================================= 
-                        addItem(
+                        loginUser(
                             context,
-                            {"name": pdname.text, "description": pddes.text},
-                            pdname.text);
-                        pdname.text = "";
-                        pddes.text = "";
+                            {"username": _username.text, "password": _password.text},
+                            _username.text);
+                        _username.text = "";
+                        _password.text = "";
                       }
                     },
                   )

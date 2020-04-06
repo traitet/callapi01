@@ -1,6 +1,8 @@
 //========================================================================================
 // 1) IMPORT
 //========================================================================================
+import 'package:callapi01/screens/add_user.dart';
+import 'package:callapi01/screens/login_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:callapi01/screens/add_item_page.dart';
 import 'package:callapi01/screens/item_page.dart';
@@ -140,25 +142,25 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             //============================================================================
-            // SIDE BAR: MENU
+            // SIDE BAR: MENU, CLICK "ADD ITEM" > GO ADD ITEM PAGE
             //============================================================================               
               ListTile(
-                title: Row(
-                  children: <Widget>[
-                    Icon(Icons.add),
-                    Text('Add item'),
-                  ],
-                ),
+                title: Row(children: <Widget>[Icon(Icons.add),Text('Add item'),],),              
+                onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => AddItemPage()));},               
+              ),
             //============================================================================
-            // CLICK "ADD ITEM"
-            //============================================================================                 
-                onTap: () {
-             //============================================================================
-            // ****GO ADD ITEM PAGE ****
-            //============================================================================                   
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AddItemPage()));
-                },
+            // SIDE BAR: MENU, CLICK "ADD ITEM" > GO ADD ITEM PAGE
+            //============================================================================               
+              ListTile(
+                title: Row(children: <Widget>[Icon(Icons.add),Text('Login'),],),              
+                onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()));},               
+              ),
+            //============================================================================
+            // SIDE BAR: MENU, GO LOGIN PAGE
+            //============================================================================                
+              ListTile(
+                title: Row(children: <Widget>[Icon(Icons.add),Text('Register User'),],),              
+                onTap: () { Navigator.push(context,MaterialPageRoute(builder: (context) => AddUserPage()));},               
               ),
             ],
           ),
