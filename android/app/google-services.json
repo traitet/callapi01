@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "667364092913",
+    "firebase_url": "https://callapi01.firebaseio.com",
+    "project_id": "callapi01",
+    "storage_bucket": "callapi01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667364092913:android:d8d8a08aea901998a77250",
+        "android_client_info": {
+          "package_name": "com.example.callapi01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667364092913-rtmmlvk6dlht91tammmiblbo8nh1a0o6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsN8NCAmuo2htAOsdRaW2LfLMmCeHGU88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667364092913-rtmmlvk6dlht91tammmiblbo8nh1a0o6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
